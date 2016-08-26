@@ -234,18 +234,15 @@ public class Generator {
 		    FutureCallback<UserRecordResult> callback = new FutureCallback<UserRecordResult>() {
                     @Override
                     public void onFailure(Throwable t) {
-                        //String tradeString = trade.toString();
-
-                        //log.error(String.format("TradeId : %d",tradeId));
 
 
                         if (t instanceof UserRecordFailedException) {
                             Attempt last = Iterables.getLast(
                                     ((UserRecordFailedException) t).getResult().getAttempts());
-                            log.error(String.format(
-                                    "Record failed to put - %s : %s : %s : %d : %d" ,
-                                    trade.toString(), last.getErrorCode(), last.getErrorMessage(), last.getDelay(), last.getDuration()));
-                            log.error("Exception during put", t);
+                            log.debug(String.format(
+                                    "Record failed to put - %s : %s : %s" ,
+                                    trade.toString(), last.getErrorCode(), last.getErrorMessage()));
+                            //log.error("Exception during put", t);
 
                         }
                     }
