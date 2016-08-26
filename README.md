@@ -9,7 +9,7 @@ To run this code:
 ```
 cd stock-trade-generator
 mvn assembly:assembly
-java -cp target/StockTradeGenerator-1.0.0-complete.jar -Dstream-name=kinesis_start_3 -Dbackpressure-size=50000 -Dbackpressure-delay=500 com.amazonaws.services.kinesis.application.producer.Generator
+java -cp target/StockTradeGenerator-1.0.0-complete.jar -Dstream-name=kinesis_start_3 -Dbackpressure-size=200000 -Dbackpressure-delay=500 com.amazonaws.services.kinesis.application.producer.Generator
 ```
 
 To execute consistent traffic, use the "backpressure-size" and "backpressure-delay" settings
